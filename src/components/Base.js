@@ -17,6 +17,19 @@ const containerVariants = {
   },
 };
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgb(255, 255, 255)',
+    boxShadow: '0px 0px 8px rgb(255, 255, 255)',
+    transition: {
+      // yoyo: 10, // it will repeat the animatio 5 times, using 10 keyframes
+      yoyo: Infinity, // if you want the animation to last forever
+      duration: 0.3 // you can control de duration of the animation
+    },
+  },
+};
+
 // variants gets propagated from parent, so hidden and visible can be used in the children variants
 const nextVariants = {
   hidden: {
@@ -74,11 +87,8 @@ const Base = ({ addBase, pizza }) => {
         >
           <Link to="/toppings">
             <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: '0px 0px 8px rgb(255, 255, 255)',
-                boxShadow: '0px 0px 8px rgb(255, 255, 255)'
-              }}
+              whileHover="hover"
+              variants={buttonVariants}
             >
               Next
             </motion.button>
